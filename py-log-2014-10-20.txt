@@ -1,0 +1,238 @@
+milos@milos-System-Product-Name ~ $ python
+Python 2.7.3 (default, Feb 27 2014, 19:37:34) 
+[GCC 4.7.2] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 1+1
+2
+>>> x=1
+>>> x=1
+>>> type(x)
+<type 'int'>
+>>> x='str'
+>>> def add(x,y):
+...   print 'adding', x, 'and', y
+...   return x+y
+... 
+>>> add(2,4)
+adding 2 and 4
+6
+>>> print add(2,4)
+adding 2 and 4
+6
+>>> def add(x,y):
+...   print('adding', x, 'and', y)
+...   return x+y
+... 
+>>> add(2,4)
+('adding', 2, 'and', 4)
+6
+>>> 1
+1
+>>> 'str'
+'str'
+>>> True
+True
+>>> False
+False
+>>> [1,2,3]
+[1, 2, 3]
+>>> ('asd', 2)
+('asd', 2)
+>>> [1,2,'bbb']
+[1, 2, 'bbb']
+>>> {'ggg': 123, 777: 666}
+{777: 666, 'ggg': 123}
+>>> x=[1,2,3]
+>>> id(x)
+140049707093888
+>>> y=[1,2,3]
+>>> id(y)
+140049707163448
+>>> z=x
+>>> id(x), id(y), id(z)
+(140049707093888, 140049707163448, 140049707093888)
+>>> z=s
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 's' is not defined
+>>> s=z
+>>> id(x), id(y), id(z), id(s)
+(140049707093888, 140049707163448, 140049707093888, 140049707093888)
+>>> locals()
+{'__builtins__': <module '__builtin__' (built-in)>, 's': [1, 2, 3], '__package__': None, 'add': <function add at 0x7f5fdd0c8320>, 'x': [1, 2, 3], 'y': [1, 2, 3], '__name__': '__main__', 'z': [1, 2, 3], '__doc__': None}
+>>> def f(a,b):
+...   z=123
+...   print locals()
+... 
+>>> f(1,2)
+{'a': 1, 'z': 123, 'b': 2}
+>>> globals()
+{'f': <function f at 0x7f5fdd0c82a8>, '__builtins__': <module '__builtin__' (built-in)>, 's': [1, 2, 3], '__package__': None, 'add': <function add at 0x7f5fdd0c8320>, 'x': [1, 2, 3], 'y': [1, 2, 3], '__name__': '__main__', 'z': [1, 2, 3], '__doc__': None}
+>>> from pprint import pprint as pp
+>>> 
+>>> def f(a,b):
+...   pp(globals())
+...   pp(locals())
+... 
+>>> f(111,222)
+{'__builtins__': <module '__builtin__' (built-in)>,
+ '__doc__': None,
+ '__name__': '__main__',
+ '__package__': None,
+ 'add': <function add at 0x7f5fdd0c8320>,
+ 'f': <function f at 0x7f5fdd0c8c08>,
+ 'pp': <function pprint at 0x7f5fdd0c8410>,
+ 's': [1, 2, 3],
+ 'x': [1, 2, 3],
+ 'y': [1, 2, 3],
+ 'z': [1, 2, 3]}
+{'a': 111, 'b': 222}
+>>> s='abc'
+>>> s.upper()
+'ABC'
+>>> class Str:
+...   def upper(self): return #....
+... 
+>>> {'a': 'A'}['a']
+'A'
+>>> True
+True
+>>> dir([1,2,3])
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__delslice__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getslice__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__setslice__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+>>> dir(True)
+['__abs__', '__add__', '__and__', '__class__', '__cmp__', '__coerce__', '__delattr__', '__div__', '__divmod__', '__doc__', '__float__', '__floordiv__', '__format__', '__getattribute__', '__getnewargs__', '__hash__', '__hex__', '__index__', '__init__', '__int__', '__invert__', '__long__', '__lshift__', '__mod__', '__mul__', '__neg__', '__new__', '__nonzero__', '__oct__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdiv__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'imag', 'numerator', 'real']
+>>> True.bit_length
+<built-in method bit_length of bool object at 0x859370>
+>>> True.bit_length()
+1
+>>> True.
+  File "<stdin>", line 1
+    True.
+        ^
+SyntaxError: invalid syntax
+>>> False.bit_length()
+0
+>>> id(True)
+8754032
+>>> id(False)
+8754064
+>>> False.conjugate()
+0
+>>> True.conjugate()
+1
+>>> help(True.conjugate)
+
+>>> 1+2j
+(1+2j)
+>>> type(1+2j)
+<type 'complex'>
+>>> (1+2j).conjugate()
+(1-2j)
+>>> complex(True)
+(1+0j)
+>>> int(True)
+1
+>>> 
+>>> 
+>>> import pprint
+>>> pprint
+<module 'pprint' from '/usr/lib/python2.7/pprint.pyc'>
+>>> class Animal:
+...   def move(self, target): print self.name, 'moves to', target
+... 
+>>> class Animal:
+...   def move(self, target): print self.name, 'moves to', target
+...   def __init__(self, name): self.name = name
+... 
+>>> class Animal:
+...   def move(self, target): print self.name, 'moves to', target
+... 
+>>> a=Animal()
+>>> a.move()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: move() takes exactly 2 arguments (1 given)
+>>> a.move('kafana')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 2, in move
+AttributeError: Animal instance has no attribute 'name'
+>>> a.name = 'Mika'
+>>> 
+>>> a.move('kafana')
+Mika moves to kafana
+>>> class Animal:
+...   def move(self, target): print self.name, 'moves to', target
+...   def __init__(self, name): self.name = name
+... 
+>>> a=Animal()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: __init__() takes exactly 2 arguments (1 given)
+>>> a=Animal('Pera')
+>>> a.move('kafana')
+Pera moves to kafana
+>>> class Cat(Animal):
+...   def move(self, target): print self.name, 'odsunjala se do', target
+... 
+>>> c=Cat('Mica')
+>>> c.move('drvo')
+Mica odsunjala se do drvo
+>>> Cat.__init__
+<unbound method Cat.__init__>
+>>> Animal.__init__
+<unbound method Animal.__init__>
+>>> a.move('kafana')
+Pera moves to kafana
+>>> a
+<__main__.Animal instance at 0x7f5fdd0cf8c0>
+>>> a.move('?')
+Pera moves to ?
+>>> c.move('?')
+Mica odsunjala se do ?
+>>> def sudar(a, c):
+...   mesto = 'drvo'
+...   a.move(mesto)
+...   c.move(mesto)
+... 
+>>> sudar(a, c)
+Pera moves to drvo
+Mica odsunjala se do drvo
+>>> Animal
+<class __main__.Animal at 0x7f5fdd0c9a78>
+>>> Animal.__dict__
+{'__module__': '__main__', 'move': <function move at 0x7f5fdd0d3aa0>, '__doc__': None, '__init__': <function __init__ at 0x7f5fdd049de8>}
+>>> pp(Animal.__dict__)
+{'__doc__': None,
+ '__init__': <function __init__ at 0x7f5fdd049de8>,
+ '__module__': '__main__',
+ 'move': <function move at 0x7f5fdd0d3aa0>}
+>>> pp(Cat.__dict__)
+{'__doc__': None,
+ '__module__': '__main__',
+ 'move': <function move at 0x7f5fdd0c82a8>}
+>>> Cat.__base__
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: class Cat has no attribute '__base__'
+>>> Cat.__bases__
+(<class __main__.Animal at 0x7f5fdd0c9a78>,)
+>>> sudar(a, 123)
+Pera moves to drvo
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 4, in sudar
+AttributeError: 'int' object has no attribute 'move'
+>>> s
+'abc'
+>>> s.upper
+<built-in method upper of str object at 0x7f5fdd1827d8>
+>>> help(range)
+
+>>> raw_input()
+dfkgjdgf
+'dfkgjdgf'
+>>> raw_input('> ')
+> fghfgh
+'fghfgh'
+>>> 
