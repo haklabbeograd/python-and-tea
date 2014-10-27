@@ -6,6 +6,7 @@ def python_workshop(date):
     '29.09.2014': 'Radili domaci wordcount.py, regularne izraze, poceli rekurzivne funkcije, puskice :)',
     '06.10.2014': 'Radili OS module, igrali se sa fajlovima i direktorijumima',
     '13.10.2014': 'Ponovili OS module, OOP, poceli obradjivati klase, objekte i metode',
+    '20.10.2014': 'Obnova gradiva, usli smo u sustinu, prakticirali sa pythonom pisali kod za idea_selection'
     }
     if 0:
       for k,v in d.items(): 
