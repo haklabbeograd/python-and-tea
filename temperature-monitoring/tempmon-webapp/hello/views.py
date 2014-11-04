@@ -11,7 +11,7 @@ def index(request):
 def add(request):
 
     temp = Temperature()
-    temp.value = 11.2
+    temp.value = float(request.GET['temp'])
     temp.save()
     
     return HttpResponse('OK')
