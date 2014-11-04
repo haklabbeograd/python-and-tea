@@ -18,7 +18,7 @@ def add(request):
 
 def get(request):
 
-    temps = Temperature.objects.all()[-96:]
+    temps = Temperature.objects.order_by('-when')[0:96]
 
     return render(request, 'temps.html', {'temps': temps})
 
