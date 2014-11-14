@@ -49,6 +49,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "moat.middleware.MoatMiddleware",
 )
 
 ROOT_URLCONF = 'gettingstarted.urls'
@@ -103,3 +104,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+MOAT_ENABLED = True
+MOAT_DEBUG_DISABLE_HTTPS = True
