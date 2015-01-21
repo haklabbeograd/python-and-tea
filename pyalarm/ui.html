@@ -1,0 +1,81 @@
+<html>
+<head>
+  <script src="/jquery-2.1.1.min.js"></script>
+  <style>
+    #jacina_div input { width: 50px }
+    #time_div input { width: 30px }
+    #trajanje_div input { width: 30px }
+    div { margin: 20px }
+  </style>
+</head>
+<body onload="on_load()">
+  <div id="jacina_div">
+    Jacina: 
+    <input type="button" value="-" onclick="promeni_jacinu(-10)"></input>
+    <span id="jacina">nn%</span>
+    <input type="button" value="+" onclick="promeni_jacinu(+10)"></input>
+  </div>
+  <div id="time_div">
+    Vreme:
+    <input id="vreme_h" value="hh" maxlength="2" onchange="read_params()"></input>:<input id="vreme_m" value="mm" maxlength="2" onchange="read_params()"></input>:<input id="vreme_s" value="ss" maxlength="2" onchange="read_params()"></input>
+  </div>
+  <div id="trajanje_div">
+    Trajanje:
+    <input id="trajanje" value="nn" maxlength="2" onchange="read_params()"></input>m
+  </div>
+
+<input type="button" value="STOP" onclick="stopiraj_alarm()" style="font-size: 40px"></input>
+
+<script>
+
+
+params = {};
+
+function update_ui() {
+  $('#jacina').text(Math.round(params.jacina*100)+'%');
+  $('#vreme_h').attr('value', params.vreme_comps[0]);
+  $('#vreme_m').attr('value', params.vreme_comps[1]);
+  $('#vreme_s').attr('value', params.vreme_comps[2]);
+  $('#trajanje').attr('value', params.trajanje);
+}
+
+function read_params() {
+  var h = Number($('#vreme_h').val());
+  var m = Number($('#vreme_m').val());
+  var s = Number($('#vreme_s').val());
+  params.vreme = h*3600 + m*60 + s;
+  var t = Number($('#trajanje').val());
+  params.trajanje = t;
+  //console.log([h, m, s, t]);
+  send_params();
+}
+
+function on_load() {
+  $.getJSON("/get_params", function (d) {
+    // console.log(d);
+    params = d;
+    update_ui();
+  });
+}
+
+function promeni_jacinu(diff) {
+  params.jacina += diff/100;
+  if (params.jacina > 1.0) params.jacina = 1.0;
+  if (params.jacina < 0.0) params.jacina = 0.0;
+  update_ui();
+  send_params();
+}
+
+function send_params() {
+  $.ajax({
+    type: "POST",
+    url: '/set_params',
+    data: JSON.stringify(params),
+    contentType:"application/json; charset=utf-8"
+  });
+}
+
+</script>
+
+</body>
+</html>
