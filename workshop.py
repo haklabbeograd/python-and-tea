@@ -12,6 +12,11 @@ def python_workshop(date):
     '10.11.2014': 'Obnovili gradivo, Instalirali digitemp i drajvere za usb-serial, omogucili da ruter otvorene mreze podatke salje na heroku',
     '17.11.2014': 'Debagovali kod, radili kalibraciju, rekurzija, dotakli lisp i haskel, plesali sa algoritmom neutralnog broja',
     '24.11.2014': 'Obnova gradiva, flask, dekoratori, plan alarmnog sistema + poceli skripting, (jacina, vreme, tip, shablon)',
+    '01.12.2014': 'Implementacija alarma, muzicka python radionica',
+    '15.12.2014': 'Magic metode, OrderedDicts, Monoidi',
+    '12.01.2015': 'Nastavak rada na RPi py alarmu, python u harmoniji sa francuskim jezikom',
+    '19.01.2015': 'Py alarm - doradjivanje funkcionalnosti, heroku fix ciscenje baze - generalnno sredjivanje pred buru',
+    '26.01.2015': '',
     }
     if 0:
       for k,v in d.items():
